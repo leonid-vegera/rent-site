@@ -1,0 +1,108 @@
+.modal {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #282c34;
+  opacity: 0.9;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    width: 50%;
+    min-height: 50%;
+    background-color: #ffffff;
+    box-shadow: 8px 13px 38px 9px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+    padding: 10px 30px;
+    border-radius: 10px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0e121c;
+    margin-bottom: 10px;
+  }
+
+  &__section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  &__button {
+    width: fit-content;
+    min-width: 100px;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: color 0.5s ease;
+
+    &--cancel {
+      background-color: lightcoral;
+    }
+    &--save {
+      background-color: #369a36;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:active {
+      opacity: 0.9;
+      border-color: rgba(115, 115, 185, 0.8);
+    }
+  }
+}
+
+.heading {
+  &__text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #181f31;
+  }
+  &__input {
+    flex-grow: 1;
+    padding: 0 5px;
+    border-radius: 5px;
+    outline: none;
+    background-color: #e3e5f1;
+    border: 2px solid transparent;
+    width: 100px;
+
+    &:hover {
+      border-color: #c4c9dc;
+    }
+  }
+}
+
+textarea.heading__input {
+  padding: 5px;
+  height: 90px;
+  resize: none;
+  font-family: Roboto;
+}
+
+#address {
+  flex-wrap: wrap;
+  row-gap: 5px;
+
+  & [name='street'] {
+    width: 50%;
+  }
+}
+
