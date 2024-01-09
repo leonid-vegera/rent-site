@@ -39,11 +39,6 @@ export function Modal({ closeModal, addAdvertisement }) {
     }
   }
 
-  // const handlePictureChange = (event) => {
-  //   const selectedPictures = Array.from(event.target.files);
-  //   setPictures(selectedPictures);
-  // }
-
   const handlePictureChange = (event) => {
     const selectedPictures = Array.from(event.target.files);
     const imageFiles = [];
@@ -205,7 +200,6 @@ export function Modal({ closeModal, addAdvertisement }) {
               multiple={true}
               id="picture"
               name="picture"
-              // value={picture}
               onChange={handlePictureChange}
             />
           </section>

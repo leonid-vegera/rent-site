@@ -2,11 +2,16 @@ import React from 'react';
 import './ElementInfo.scss';
 
 export function ElementInfo({ element }) {
-  const { price, heading, description, address } = element;
+  const { price, heading, description, address, pictures } = element;
   return (
     <div className='element-info'>
       <section className="element-info__container">
         <div className="element-info__image">
+          <img
+            src={pictures[0]}
+            className="element-info__photo"
+            alt='accommodation'
+          />
           <div className="element-info__sum">
             {price} грн / доба
           </div>

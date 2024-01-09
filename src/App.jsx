@@ -11,7 +11,7 @@ function App() {
   const [searchText, setSearchText] = useState('');
   const [isModalOpened, setModalOpened] = useState(false);
   const [activeAdd, setActiveAdd] = useState(null);
-  const [values, save] = useLocalStorage('advs', []);
+  const [values, save] = useLocalStorage('adverts', []);
   const [mapValues, setMapValues] = useState(values);
 
   const handleSearch = (text) => {
@@ -85,7 +85,8 @@ function App() {
         <MapComponent
           values={values}
           handleMarkerClick={handleMarkerClick}
-          updateAdvertes={updateWhenMapResize}
+          updateAdverts={updateWhenMapResize}
+          activeId={activeAdd?.id || ''}
         />
         <SidePanel elements={panelElements}/>
       </div>

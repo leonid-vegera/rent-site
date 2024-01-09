@@ -20,10 +20,15 @@ function MapEvents({ updateVisibleAdvertisements }) {
   return null;
 }
 
-export function MapComponent({ values, handleMarkerClick, updateAdvertes }) {
+export function MapComponent({ values, handleMarkerClick, updateAdverts, activeId }) {
   const center = [50.44491037198471, 30.523112934643784];
   const customIcon = L.icon({
     iconUrl: process.env.PUBLIC_URL + '/img/home-icon.png',
+    iconSize: [38, 38],
+  });
+
+  const customActiveIcon = L.icon({
+    iconUrl: process.env.PUBLIC_URL + '/img/home-icon-active.png',
     iconSize: [38, 38],
   });
 
@@ -32,8 +37,12 @@ export function MapComponent({ values, handleMarkerClick, updateAdvertes }) {
     const newVisibleAdvertisements = values.filter((ad) =>
       bounds.contains(ad.coordinates)
     );
-    updateAdvertes(newVisibleAdvertisements);
+    updateAdverts(newVisibleAdvertisements);
   }, [values]);
+
+  const getIcon = (markerId) => {
+    return markerId === activeId ? customActiveIcon : customIcon;
+  }
 
   return (
     <MapContainer
@@ -54,7 +63,7 @@ export function MapComponent({ values, handleMarkerClick, updateAdvertes }) {
         {values.map(marker => (
           <Marker
             position={marker.coordinates}
-            icon={customIcon}
+            icon={getIcon(marker.id)}
             key={marker.id}
             eventHandlers={{
               click: () => handleMarkerClick(marker.id),
