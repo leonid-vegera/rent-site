@@ -173,19 +173,21 @@ export function Modal({ closeModal, addAdvertisement }) {
             <label className="heading__text" htmlFor='price'>
               Вартість за добу
             </label>
-            <input
-              type="number"
-              className="heading__input"
-              placeholder="Введіть суму"
-              required={true}
-              id="price"
-              name="price"
-              value={price}
-              onChange={(event) => {
-                setPrice(+event.target.value)
-              }}
-            />
-            <span>грн</span>
+            <div className="heading__sum">
+              <input
+                type="number"
+                className="heading__input"
+                placeholder="Введіть суму"
+                required={true}
+                id="price"
+                name="price"
+                value={price}
+                onChange={(event) => {
+                  setPrice(+event.target.value)
+                }}
+              />
+              <span>грн</span>
+            </div>
           </section>
 
           <section className="modal__section heading">
@@ -205,19 +207,21 @@ export function Modal({ closeModal, addAdvertisement }) {
           </section>
 
           <section className="modal__section">
-            <button
-              className="modal__button modal__button--cancel"
-              type="button"
-              onClick={closeModal}
-            >
-              Відміна
-            </button>
-            <button
-              className="modal__button modal__button--save"
-              type="submit"
-            >
-              Зберегти
-            </button>
+            <div className="modal__buttons">
+              <button
+                className="modal__button modal__button--cancel"
+                type="button"
+                onClick={closeModal}
+              >
+                Відміна
+              </button>
+              <button
+                className="modal__button modal__button--save"
+                type="submit"
+              >
+                Зберегти
+              </button>
+            </div>
           </section>
         </form>
     </div>

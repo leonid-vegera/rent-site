@@ -6,12 +6,13 @@ import { Modal } from './components/Modal/Modal';
 import { SidePanel } from './components/SidePanel/SidePanel';
 import { useLocalStorage } from './service/useLocalStorage';
 import { MapComponent } from './components/MapComponent/MapComponent';
+import { initialData } from './data/initialData';
 
 function App() {
   const [searchText, setSearchText] = useState('');
   const [isModalOpened, setModalOpened] = useState(false);
   const [activeAdd, setActiveAdd] = useState(null);
-  const [values, save] = useLocalStorage('adverts', []);
+  const [values, save] = useLocalStorage('adverts', initialData);
   const [mapValues, setMapValues] = useState(values);
 
   const handleSearch = (text) => {
